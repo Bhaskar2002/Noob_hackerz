@@ -1,2 +1,3 @@
 # Noob_hackerz
-This was our first trial at hackathon which was not made on time
+This was a first team project in hackathon
+  which was not completed because we were slow, having very less knowledge about the project and how to do it.
