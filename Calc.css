@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=zen+Dot&display=swap');
+* {
+    font-family: 'Zen Dots';
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+}
+
+body {
+    background-image: url('307854.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.parent {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 350px;
+    height: 320px;
+    background-color: #cbcbcf;
+    box-shadow: 0px 0px 0px 10px rgb(29, 2, 54);
+    border-radius: 5px;
+}
+
+#display {
+    width: 320px;
+    height: 40px;
+    text-align: right;
+    background-color: whitesmoke;
+    font-size: 22px;
+    left: 2px;
+    top: 2px;
+    color: #070e01;
+}
+
+.btnTop {
+    color: white;
+    background-color: #f5984c;
+    font-size: 14px;
+    margin: auto;
+    width: 50px;
+    height: 25px;
+}
+
+.btnNum {
+    color: white;
+    background-color: black;
+    font-size: 14px;
+    margin: auto;
+    width: 50px;
+    height: 25px;
+}
+
+.btnMath {
+    color: white;
+    background-color: #050361;
+    font-size: 14px;
+    margin: auto;
+    width: 50px;
+    height: 25px;
+}
+
+.btnOpps {
+    color: white;
+    background-color: #4e4d4c;
+    font-size: 14px;
+    margin: auto;
+    width: 50px;
+    height: 25px;
+}
+
+.btnTop:hover,
+.btnOpps:hover,
+.btnMath:hover,
+.btnNum:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    z-index: 5000;
+}
+
+.parent::before {
+    content: "";
+    background: url('https://cdn2.vectorstock.com/i/1000x1000/36/21/mathematics-background-vector-13223621.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
