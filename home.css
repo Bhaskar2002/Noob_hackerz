@@ -1,48 +1,35 @@
 * {
-    background-image: url('index.png');
+    background-color: rgb(164, 211, 211);
 }
+
 
 .head {
+    font-weight: bolder;
     text-align: center;
+    padding: 30px;
 }
 
-.container {
-    margin-top: 15%;
-    display: flex;
-    justify-content: center;
+figure {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
 }
 
-.box {
-    align-items: center;
-    width: 160px;
-    height: 40px;
-    padding: 10px;
-    margin: 10px;
-    color: aliceblue;
-    text-align: center;
+.course a figure {
+    border-radius: 10%;
+    margin: 20px;
 }
 
-.mainbox {
-    align-items: center;
-    display: inherit;
-    flex-direction: column;
+.course a img {
+    width: 200px;
+    height: 200px;
+    transition: all .5s ease;
 }
 
-a:link,
-a:visited {
-    border-radius: 30px;
-    background-color: green;
-    text-decoration: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
+.div2 {
+    margin-left: 400;
 }
 
-a:hover {
-    color: blue;
-    background-color: goldenrod;
-}
-
-a:active {
-    background-color: rgb(15, 108, 190);
+.course a img:hover {
+    transform: scale(1.2);
 }
