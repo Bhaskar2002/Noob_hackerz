@@ -1,65 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script language="javascript"></script>
-    <script src="calc.js"></script>
     <link rel="stylesheet" href="Calc.css">
-</head>
-<div class="parent">
-    <form name="sci-calc">
-        <table class="calculator" cellspacing="0" cellpadding="1">
-            <tr>
-                <td colspan="5"><input id="display" name="display" value="0" size="28" maxlength="25"></td>
-            </tr>
-            <tr>
-                <td><input type="button" class="btnTop" name="btnTop" value="C" onclick="this.form.display.value=  0 "></td>
-                <td><input type="button" class="btnTop" name="btnTop" value="<--" onclick="deleteChar(this.form.display)"></td>
-                <td><input type="button" class="btnTop" name="btnTop" value="=" onclick="if(checkNum(this.form.display.value)) { compute(this.form) }"></td>
-                <td><input type="button" class="btnOpps" name="btnOpps" value="&#960;" onclick="addChar(this.form.display,'3.14159265359')"></td>
-                <td><input type="button" class="btnMath" name="btnMath" value="%" onclick=" percent(this.form.display)"></td>
-            </tr>
-            <tr>
-                <td><input type="button" class="btnNum" name="btnNum" value="7" onclick="addChar(this.form.display, '7')"></td>
-                <td><input type="button" class="btnNum" name="btnNum" value="8" onclick="addChar(this.form.display, '8')"></td>
-                <td><input type="button" class="btnNum" name="btnNum" value="9" onclick="addChar(this.form.display, '9')"></td>
-                <td><input type="button" class="btnOpps" name="btnOpps" value="x&#94;" onclick="if(checkNum(this.form.display.value)) { exp(this.form) }"></td>
-                <td><input type="button" class="btnMath" name="btnMath" value="/" onclick="addChar(this.form.display, '/')"></td>
-                <tr>
-                    <td><input type="button" class="btnNum" name="btnNum" value="4" onclick="addChar(this.form.display, '4')"></td>
-                    <td><input type="button" class="btnNum" name="btnNum" value="5" onclick="addChar(this.form.display, '5')"></td>
-                    <td><input type="button" class="btnNum" name="btnNum" value="6" onclick="addChar(this.form.display, '6')"></td>
-                    <td><input type="button" class="btnOpps" name="btnOpps" value="ln" onclick="if(checkNum(this.form.display.value)) { ln(this.form) }"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="*" onclick="addChar(this.form.display, '*')"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" class="btnNum" name="btnNum" value="1" onclick="addChar(this.form.display, '1')"></td>
-                    <td><input type="button" class="btnNum" name="btnNum" value="2" onclick="addChar(this.form.display, '2')"></td>
-                    <td><input type="button" class="btnNum" name="btnNum" value="3" onclick="addChar(this.form.display, '3')"></td>
-                    <td><input type="button" class="btnOpps" name="btnOpps" value="&radic;" onclick="if(checkNum(this.form.display.value)) { sqrt(this.form) }"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="-" onclick="addChar(this.form.display, '-')"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" class="btnMath" name="btnMath" value="&#177" onclick="changeSign(this.form.display)"></td>
-                    <td><input type="button" class="btnNum" name="btnNum" value="0" onclick="addChar(this.form.display, '0')"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="&#46;" onclick="addChar(this.form.display, '&#46;')"></td>
-                    <td><input type="button" class="btnOpps" name="btnOpps" value="x&#50;" onclick="if(checkNum(this.form.display.value)) { square(this.form) }"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="+" onclick="addChar(this.form.display, '+')"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" class="btnMath" name="btnMath" value="(" onclick="addChar(this.form.display, '(')"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value=")" onclick="addChar(this.form.display,')')"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="cos" onclick="if(checkNum(this.form.display.value)) { cos(this.form) }"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="sin" onclick="if(checkNum(this.form.display.value)) { sin(this.form) }"></td>
-                    <td><input type="button" class="btnMath" name="btnMath" value="tan" onclick="if(checkNum(this.form.display.value)) { tan(this.form) }"></td>
-                </tr>
-                </tabel>
-    </form>
-</div>
-</body>
-
+  </head>
+  <body>
+	<video autoplay muted loop id="myVideo">
+		<source src="math_bg.mp4" type="video/mp4">
+	  </video>
+	<div id="calculator">
+	  <div id="container1">
+		<input type="text" id="inputNum" value="0" readonly />
+		<span id="helper">Deg</span>
+	  </div>
+	  <div id="container2">
+		<span id="leftBr" onclick='insert("(")'>(</span>
+		<span id="rightBr" onclick='insert(")")'>)</span>
+		<span id="factorial" onclick="factorial()">x!</span>
+		<span id="fibonacci" onclick="fib(inp.value)">Fib</span>
+		<span id="sin" onclick="showSinDeg()">sin</span>
+		<span id="cos" onclick="showCosDeg()">cos</span>
+		<span id="tan" onclick="showTanDeg()">tan</span>
+		<span id="ctg" onclick="showCtgDeg()">ctg</span>
+		<span id="PI" onclick="showMathPI()">&pi;</span>
+		<span id="sinh" onclick="showSinh()">sinh</span>
+		<span id="E" onclick="showMathE()">e</span>
+		<span id="cosh" onclick="showCosh()">cosh</span>
+		<span id="min" onclick="showMinInteger()">Min</span>
+		<span id="tanh" onclick="showTanh()">tanh</span>
+		<br />
+		<span id="xPowY" onclick="xPowY()">x<sup>y</sup></span>
+		<span id="arcsin" onclick="showArcsinDeg()">sin<sup>-1</sup></span>
+		<span id="tenPowX" onclick="tenPowX()">10<sup>x</sup></span>
+		<span id="arccos" onclick="showArccosDeg()">cos<sup>-1</sup></span>
+		<span id="powE" onclick="powMathE()">e<sup>x</sup></span>
+		<span id="arctan" onclick="showArctanDeg()">tan<sup>-1</sup></span>
+		<span id="oneDiv" onclick="oneDivByX()">1 / x</span>
+		<span id="arcctg" onclick="showArcctgDeg()">ctg<sup>-1</sup></span>
+		<span id="xPow2" onclick="xPowTwo()">x<sup>2</sup></span>
+		<span id="xPow3" onclick="xPowThree()">x<sup>3</sup></span>
+		<span id="twoPowX" onclick="twoPowX()">2<sup>x</sup></span>
+		<span id="threePowX" onclick="threePowX()">3<sup>x</sup></span>
+		<span id="max" onclick="showMaxInteger()">Max</span>
+		<span id="ctgh" onclick="showCtgh()">ctgh</span>
+		<br />
+		<span id="sqrt" onclick="showSQRT()">&#8730;</span>
+		<span id="asinh" onclick="showAsinh()">sinh<sup>-1</sup></span>
+		<span id="cbrt" onclick="showCBRT()">&#8731;</span>
+		<span id="acosh" onclick="showAcosh()">cosh<sup>-1</sup></span>
+		<span id="root" onclick="showRoot()">y<sub>&#8730;</sub></span>
+		<span id="atanh" onclick="showAtanh()">tanh<sup>-1</sup></span>
+		<span id="ln" onclick="showLn()">ln</span>
+		<span id="actgh" onclick="showActgh()">ctgh<sup>-1</sup></span>
+		<span id="log2" onclick="showLog2()">log<sub>2</sub></span>
+		<span id="log10" onclick="showLog10()">log<sub>10</sub></span>
+		<span id="toggle">2<sup id="sup">nd</sup></span>
+		<span id="random" onclick="showMathRandom()">Rand</span>
+		<span id="rad">Rad</span>
+		<br />
+	  </div>
+	  <div id="container3">
+		<p id="cleaner" onclick="clearValue()">C</p>
+		<p id="delNum" onclick="deleteNumber()">&#8592;</p>
+		<p id="percent" onclick="showPercent()">%</p>
+		<p id="divide" onclick='insert("/")'>&divide;</p>
+		<br />
+		<p id="one" onclick="insert(7)">7</p>
+		<p id="two" onclick="insert(8)">8</p>
+		<p id="three" onclick="insert(9)">9</p>
+		<p id="mult" onclick='insert("*")'>&times;</p>
+		<br />
+		<p id="four" onclick="insert(4)">4</p>
+		<p id="five" onclick="insert(5)">5</p>
+		<p id="six" onclick="insert(6)">6</p>
+		<p id="minus" onclick='insert("-")'>-</p>
+		<br />
+		<p id="seven" onclick="insert(1)">1</p>
+		<p id="eight" onclick="insert(2)">2</p>
+		<p id="nine" onclick="insert(3)">3</p>
+		<p id="plus" onclick='insert("+")'>+</p>
+		<br />
+		<p id="zero" onclick="insert(0)">0</p>
+		<p id="point" onclick='insert(".")'>,</p>
+		<p id="equal" onclick="equal()">=</p>
+	  </div>
+	</div>
+  </body>
+  <script src="calc.js"></script>
 </html>
