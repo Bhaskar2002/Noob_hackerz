@@ -93,3 +93,19 @@ h1 {
                0 10px 10px rgba(0,0,0,.2),
                0 20px 20px rgba(0,0,0,.15);
 }
+
+.main {
+    padding-left: 20%;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:910px) {
+    .div1 {
+        margin-left: 0px;
+    }
+    .main {
+        padding-left: 5%;
+    }
+}
